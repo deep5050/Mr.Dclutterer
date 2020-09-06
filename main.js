@@ -57,7 +57,7 @@ app.on('activate', () => {
 
 
 
-/////////////////////////
+///////////////////////// Aggregate by file types //////////////////////////////////
 
 
 byType = (filePathArr, handleDirs) => {
@@ -137,14 +137,99 @@ byType = (filePathArr, handleDirs) => {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////// Aggregate by Extensions //////////////////////
+byExtension = (filePathArr, handleDirs) => {
+  var filesUnderAllDirs = [];
+  filePathArr.forEach(_path => {
+
+    if (fs.existsSync(_path)) {
+
+
+      if (fs.lstatSync(_path).isFile()) {
+        baseFileName = path.basename(_path);
+        // is file ??
+        var ext;
+        try {
+          ext = path.extname(_path).split('.')[1];
+        } catch (error) {
+          console.error("ERROR: " + _path + " no extension found");
+        }
+
+        if (ext) {
+          if (ext !== "") {
+            console.log(_path + " Extension: " + ext);
+
+            // logic goes here ..................
+
+            // extract the directory from the file path
+            currDirName = path.dirname(_path);
+
+            // create directory(UPPERCASE) if not exists based on the type
+            determinedDirName = ext.toUpperCase();
+            newDirPath = path.join(currDirName, determinedDirName);
+            movePath = path.join(newDirPath, baseFileName);
+
+            if (!fs.existsSync(newDirPath)) {
+
+              try {
+                fs.mkdirSync(newDirPath)
+              } catch (error) {
+                console.log("Error: create " + newDirPath);
+              }
+            }
+
+            // move file to the newly created directory
+            try {
+              fs.renameSync(_path, movePath);
+            } catch (error) {
+              console.log("Error: move " + movePath);
+            }
+
+          }
+          else {
+            console.log("ERROR: " + _path + " could not decide")
+          }
+        }
+      }
+      else if (fs.lstatSync(_path).isDirectory() && handleDirs == true) {
+        // if feature is enabled, list all the FILES  ( exclude further directories) i.e. depth = 1 and add it to a list
+
+        console.log(_path + " is a Directory : Listing all the files to arrange them :)");
+        dirPath = _path;
+        entries = fs.readdirSync(dirPath);
+
+        entries.forEach(element => {
+          if (fs.lstatSync(path.join(dirPath, element)).isFile()) {
+            filesUnderAllDirs.push(path.join(dirPath, element)); // appending files only
+          }
+        });
+      }
+    }
+  });
+
+  // now call this function again with handleDirs=false
+  if (filesUnderAllDirs && filesUnderAllDirs.length != 0) {
+    byExtension(filesUnderAllDirs, false);
+  }
+
+}
+
+
+///////////////////////////////////////////////////////////////////////
 
 
 
-var mode = 1;
+var mode = 2;
 
 analyzeAndConvert = async (filePathArr) => {
   if (mode === 1) {
     byType(filePathArr, true);
+  }
+  else if (mode === 2) {
+    byExtension(filePathArr, true);
   }
 }
 
@@ -156,4 +241,8 @@ ipcMain.on('arrange', (event, filePath) => {
   analyzeAndConvert(filePathArr);
   let currWin = BrowserWindow.getFocusedWindow()
   currWin.webContents.send('done', 'done');
+});
+
+ipcMain.on('quit',(event)=>{
+app.quit();
 })

@@ -64,3 +64,7 @@ document.getElementById('go').addEventListener('click', (event) => {
 ipcRenderer.on('done', (event, msg) => {
     document.getElementById('count').innerText = "DONE";
 });
+
+document.getElementById('quit').addEventListener('click',(event)=>{
+    ipcRenderer.send('quit');
+})
