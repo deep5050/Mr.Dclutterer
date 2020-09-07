@@ -191,7 +191,7 @@ body {
 .card .actions .go-btn button {
   color: inherit;
   font: inherit;
-  font-weight: bold;
+  font-weight: normal;
   background-color: #ffd01a;
   width: 100%;
   border: none;
