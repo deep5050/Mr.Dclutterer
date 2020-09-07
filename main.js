@@ -1,19 +1,63 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
-const url = require('url')
-const path = require('path')
-const FileTypes = require('./file-types.json')
-const fs = require('fs')
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const url = require('url');
+const path = require('path');
+const FileTypes = require('./file-types.json');
+const fs = require('fs');
+const contextMenu = require('electron-context-menu');
 
 
+var mode = 1; // by default works on file
+var handleDirs = true; // by default process directories with depth 1
+
+// require('electron-reload')(path.join(__dirname, 'app'));
 
 
-require('electron-reload')(path.join(__dirname, 'app'));
+contextMenu({
+  prepend: (defaultActions, params, browserWindow) => [
+    {
+      label: 'Aggregate By Types',
+      visible: true,
+      click: () => {
+        mode = 1;
+        console.log("Switched to : Type Mode");
+
+      }
+    },
+    {
+      label: 'Aggregate By Extensions',
+      visible: true,
+      click: () => {
+        mode = 2;
+        console.log("Switched to : Extension Mode");
+      }
+    },
+    {
+      label: 'Toggle Directories Handling',
+      visible: true,
+      click: () => {
+        handleDirs = !handleDirs;
+
+        console.log("Handle Dirs: " + handleDirs);
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('handleDirs', handleDirs);
+      }
+    },
+    {
+      label: 'Open In GitHub',
+      visible: true,
+      click: () => {
+        shell.openExternal(`https://github.com/deep5050/Mr.Dclutterer`);
+      }
+    }
+  ]
+});
 
 
+let win;
 function createWindow() {
-  const win = new BrowserWindow({
-    width: 700, // 300
-    height: 700,  // 400
+  win = new BrowserWindow({
+    width: 300, // 300
+    height: 440,  // 400
     resizable: true,
     frame: false,
     maximizable: false,
@@ -33,7 +77,7 @@ function createWindow() {
 
 
 
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 }
 
 
@@ -222,14 +266,13 @@ byExtension = (filePathArr, handleDirs) => {
 
 
 
-var mode = 2;
 
 analyzeAndConvert = async (filePathArr) => {
   if (mode === 1) {
-    byType(filePathArr, true);
+    byType(filePathArr, handleDirs);
   }
   else if (mode === 2) {
-    byExtension(filePathArr, true);
+    byExtension(filePathArr, handleDirs);
   }
 }
 
@@ -239,10 +282,10 @@ ipcMain.on('arrange', (event, filePath) => {
   // console.log(filePath);
   var filePathArr = filePath.split("\n");
   analyzeAndConvert(filePathArr);
-  let currWin = BrowserWindow.getFocusedWindow()
-  currWin.webContents.send('done', 'done');
+  let currWin = BrowserWindow.getFocusedWindow();
+  win.webContents.send('done', 'done');
 });
 
-ipcMain.on('quit',(event)=>{
-app.quit();
+ipcMain.on('quit', (event) => {
+  app.quit();
 })
