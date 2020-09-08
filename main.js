@@ -5,6 +5,7 @@ const FileTypes = require('./file-types.json');
 const fs = require('fs');
 const contextMenu = require('electron-context-menu');
 
+const appVersion = app.getVersion();
 
 var mode = 1; // by default works on file
 var handleDirs = true; // by default process directories with depth 1
@@ -113,7 +114,7 @@ contextMenu({
     },
     actions.separator(),
     {
-      label: 'Open In GitHub',
+      label: 'About This App (Version: '+appVersion+")",
       visible: true,
       click: () => {
         shell.openExternal(`https://github.com/deep5050/Mr.Dclutterer`);
@@ -335,14 +336,93 @@ byExtension = (filePathArr, handleDirs) => {
 ///////////////////////////////////////////////////////////////////////
 
 
+/////////////////////////// Renaming /////////////////////////
 
 
-analyzeAndConvert = async (filePathArr) => {
+renameFiles = (filePathArr, handleDirs, exactMode) => {
+  var filesUnderAllDirs = [];
+  filePathArr.forEach(_path => {
+
+    if (fs.existsSync(_path)) {
+
+
+      if (fs.lstatSync(_path).isFile()) {
+        baseFileName = path.basename(_path);
+        // is file ??
+        currDirName = path.dirname(_path);
+
+        // check for the actual mode and set rules accordingly
+        newFileName = baseFileName;
+
+        if (exactMode === 3) {
+          // replace space with dash
+          newFileName = baseFileName.replace(/ /g, '-');
+
+        }
+        else if (exactMode === 4) {
+          // replace dash with underscore
+          newFileName = baseFileName.replace(/-/g, '_');
+        }
+        else if (exactMode === 5) {
+          // replace underscore with space
+          newFileName = baseFileName.replace(/_/g, ' ');
+        }
+
+        movePath = path.join(currDirName, newFileName);
+
+        if (fs.existsSync(movePath)) {
+          console.log("WARNING: " + movePath + " already exists");
+        }
+        else {
+          try {
+            // rename file accordingly
+            fs.renameSync(_path, movePath);
+          } catch (error) {
+            console.log("Error: move " + movePath);
+          }
+        }
+      }
+
+      else if (fs.lstatSync(_path).isDirectory() && handleDirs == true) {
+        // if feature is enabled, list all the FILES  ( exclude further directories) i.e. depth = 1 and add it to a list
+
+        console.log(_path + " is a Directory : Listing all the files to arrange them :)");
+        dirPath = _path;
+        entries = fs.readdirSync(dirPath);
+
+        entries.forEach(element => {
+          if (fs.lstatSync(path.join(dirPath, element)).isFile()) {
+            filesUnderAllDirs.push(path.join(dirPath, element)); // appending files only
+          }
+        });
+
+      }
+    }
+  });
+
+  // now call this function again with handleDirs=false
+  if (filesUnderAllDirs && filesUnderAllDirs.length != 0) {
+    renameFiles(filesUnderAllDirs, false,exactMode);
+  }
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+
+analyzeAndGo = async (filePathArr) => {
   if (mode === 1) {
     byType(filePathArr, handleDirs);
   }
-  else if (mode === 2) {
+  if (mode === 2) {
     byExtension(filePathArr, handleDirs);
+  }
+  if (mode > 2) {
+    // renaming
+    renameFiles(filePathArr, handleDirs, mode);
   }
 }
 
@@ -351,7 +431,7 @@ analyzeAndConvert = async (filePathArr) => {
 ipcMain.on('go', (event, filePath) => {
   // console.log(filePath);
   var filePathArr = filePath.split("\n");
-  analyzeAndConvert(filePathArr);
+  analyzeAndGo(filePathArr);
   let currWin = BrowserWindow.getFocusedWindow();
   win.webContents.send('done', 'DONE');
 });

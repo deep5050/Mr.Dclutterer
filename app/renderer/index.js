@@ -42,7 +42,9 @@ dropArea.addEventListener('dragleave', (event) => {
 
 
 document.getElementById('go').addEventListener('click', (event) => {
-    document.getElementById('count').innerText = "Working On It ........";
+    if (file_paths != "") {
+        document.getElementById('count').innerText = "Working On It ........";
+    }
 
     if (file_paths != "") {
         ipcRenderer.send('go', file_paths);
