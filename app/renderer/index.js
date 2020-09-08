@@ -1,14 +1,6 @@
 const { ipcRenderer } = require('electron')
 
 
-// console.log("hiiiii")
-// document.getElementById('drag').ondragstart = (event) => {
-//     console.log("joooooo");
-//     event.preventDefault()
-//     ipcRenderer.send('ondragstart', '/path/to/item')
-//   }
-
-
 /////////////////
 var file_paths = "";
 var dropArea = document.getElementById('drop');
@@ -69,12 +61,8 @@ document.getElementById('quit').addEventListener('click', (event) => {
     ipcRenderer.send('quit');
 });
 
-ipcRenderer.on('handleDirs', (event, handleDirs) => {
-    if (handleDirs) {
-        document.getElementById('mode').innerText = "Handles Directories";
-    }
-    else {
-        document.getElementById('mode').innerText = "Doesn't Handle Directories";
 
-    }
+
+ipcRenderer.on('mode', (event, msg) => {
+    document.getElementById('mode').innerText = msg;
 })

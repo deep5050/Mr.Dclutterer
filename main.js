@@ -19,8 +19,10 @@ contextMenu({
       visible: true,
       click: () => {
         mode = 1;
-        console.log("Switched to : Type Mode");
 
+        console.log("Switched to : Type Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Aggregate Files By Type");
       }
     },
     {
@@ -29,6 +31,8 @@ contextMenu({
       click: () => {
         mode = 2;
         console.log("Switched to : Extension Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Aggregate Files by Extension");
       }
     },
     {
@@ -39,7 +43,14 @@ contextMenu({
 
         console.log("Handle Dirs: " + handleDirs);
         let currWin = BrowserWindow.getFocusedWindow();
-        currWin.webContents.send('handleDirs', handleDirs);
+        if (handleDirs) {
+
+          currWin.webContents.send('mode', "Handle Directories");
+        }
+        else {
+          currWin.webContents.send('mode', "Don't Handle Directories");
+
+        }
       }
     },
     {
