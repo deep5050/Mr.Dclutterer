@@ -45,7 +45,7 @@ document.getElementById('go').addEventListener('click', (event) => {
     document.getElementById('count').innerText = "Working On It ........";
 
     if (file_paths != "") {
-        ipcRenderer.send('arrange', file_paths);
+        ipcRenderer.send('go', file_paths);
     }
 
     file_paths = "";
@@ -54,7 +54,7 @@ document.getElementById('go').addEventListener('click', (event) => {
 
 
 ipcRenderer.on('done', (event, msg) => {
-    document.getElementById('count').innerText = "DONE";
+    document.getElementById('count').innerText = msg;
 });
 
 document.getElementById('quit').addEventListener('click', (event) => {

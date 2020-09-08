@@ -13,7 +13,19 @@ var handleDirs = true; // by default process directories with depth 1
 
 
 contextMenu({
-  prepend: (defaultActions, params, browserWindow) => [
+  menu: (actions, params, browserWindow) => [
+    {
+      label: 'Default Mode',
+      visible: true,
+      click: () => {
+        mode = 1;
+        handleDirs = true;
+        console.log("Switched to : Default Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Default Mode");
+      }
+    },
+    actions.separator(),
     {
       label: 'Aggregate By Types',
       visible: true,
@@ -35,6 +47,52 @@ contextMenu({
         currWin.webContents.send('mode', "Aggregate Files by Extension");
       }
     },
+    actions.separator(),
+    // {
+    //   label: 'Rename Without Space',
+    //   visible: true,
+    //   click: () => {
+    //     mode = 3;
+
+    //     console.log("Switched to : Rename Without Space Mode");
+    //     let currWin = BrowserWindow.getFocusedWindow();
+    //     currWin.webContents.send('mode', "Remove Spaces From Name");
+    //   }
+    // },
+    {
+      label: 'Rename By Replacing Space With Dash',
+      visible: true,
+      click: () => {
+        mode = 3;
+
+        console.log("Switched to : Replace Space -> Dash Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Replace Space With Dash");
+      }
+    },
+    {
+      label: 'Rename By Replacing Dash With Underscore',
+      visible: true,
+      click: () => {
+        mode = 4;
+
+        console.log("Switched to : Replace Dash -> Underscore Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Replace Dash With Underscore");
+      }
+    },
+    {
+      label: 'Rename By Replacing Underscore With Space',
+      visible: true,
+      click: () => {
+        mode = 5;
+
+        console.log("Switched to : Replace underscore -> Space Mode");
+        let currWin = BrowserWindow.getFocusedWindow();
+        currWin.webContents.send('mode', "Replace Underscore With Space");
+      }
+    },
+    actions.separator(),
     {
       label: 'Toggle Directories Handling',
       visible: true,
@@ -53,6 +111,7 @@ contextMenu({
         }
       }
     },
+    actions.separator(),
     {
       label: 'Open In GitHub',
       visible: true,
@@ -289,12 +348,12 @@ analyzeAndConvert = async (filePathArr) => {
 
 
 
-ipcMain.on('arrange', (event, filePath) => {
+ipcMain.on('go', (event, filePath) => {
   // console.log(filePath);
   var filePathArr = filePath.split("\n");
   analyzeAndConvert(filePathArr);
   let currWin = BrowserWindow.getFocusedWindow();
-  win.webContents.send('done', 'done');
+  win.webContents.send('done', 'DONE');
 });
 
 ipcMain.on('quit', (event) => {
