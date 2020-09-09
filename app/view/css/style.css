@@ -20,7 +20,7 @@
 
 .drag{
   -webkit-app-region: drag;
-  cursor: move;
+  /* cursor: move; */
 }
 
 html{
