@@ -4,8 +4,9 @@ const path = require('path');
 const FileTypes = require('./file-types.json');
 const fs = require('fs');
 const contextMenu = require('electron-context-menu');
-
 const appVersion = app.getVersion();
+const { autoUpdater } = require('electron-updater');
+
 
 var mode = 1; // by default works on file
 var handleDirs = true; // by default process directories with depth 1
@@ -151,8 +152,24 @@ function createWindow() {
   // win.webContents.openDevTools()
 }
 
+win.once('ready-to-show', () => {
+  autoUpdater.checkForUpdatesAndNotify();
+});
 
-app.whenReady().then(createWindow)
+autoUpdater.on('update-available', () => {
+  let currWin = BrowserWindow.getFocusedWindow();
+  currWin.webContents.send('mode', "App Update Available");
+
+});
+
+autoUpdater.on('update-downloaded', () => {
+  let currWin = BrowserWindow.getFocusedWindow();
+  currWin.webContents.send('mode', "Restarting App To Update It");
+  autoUpdater.quitAndInstall();
+});
+
+
+app.whenReady().then(createWindow);
 
 
 app.on('window-all-closed', () => {

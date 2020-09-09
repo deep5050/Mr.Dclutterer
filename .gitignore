@@ -107,3 +107,4 @@ dist
 temp.js
 Mr.Dclutterer-flat.md
 dist/
+electron-builder.yml

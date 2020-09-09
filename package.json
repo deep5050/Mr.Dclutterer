@@ -12,11 +12,12 @@
     "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
     "pack": "build --dir",
-    "dist:linux": "build -l --config",
-    "dist:win": "electron-builder --windows nsis:ia32",
-    "dist:deb": "electron-builder --linux deb tar.xz",
+    "dist:linux": "build -l --config --publish never",
+    "dist:win": "electron-builder --windows nsis:ia32 --publish never",
+    "dist:deb": "electron-builder --linux deb tar.xz --publish never",
     "dist": "electron-builder",
-    "dist:appimage": "electron-builder --linux AppImage"
+    "dist:appimage": "electron-builder --linux AppImage --publish never",
+    "deploy":"electron-builder build --linux --win --publish always"
   },
   "keywords": [
     "rename",
@@ -29,8 +30,8 @@
   ],
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/deep5050/Mr.Dclutterer.git"
+    "type": "git",
+    "url": "https://github.com/deep5050/Mr.Dclutterer.git"
   },
   "homepage": "https://deep5050.github.io/Mr.Dclutterer",
   "devDependencies": {
@@ -39,6 +40,7 @@
     "electron-reload": "^1.5.0"
   },
   "dependencies": {
-    "electron-context-menu": "^2.3.0"
+    "electron-context-menu": "^2.3.0",
+    "electron-updater": "^4.3.4"
   }
 }
