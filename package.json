@@ -1,12 +1,12 @@
 {
-  "name": "Mr.D'clutterer",
+  "name": "Mr.Dclutterer",
   "version": "1.0.0",
-  "description": "Minimal App To Arrange And Rename Files In Bulk And To Make You More Productive",
+  "description": "Minimal App To Aggregate And Rename Files In Bulk And To Make You More Productive",
   "main": "main.js",
   "author": "Dipankar Pal <dipankarpal5050@gmail.com>",
   "contributors": {
-    "name": "dipankar pal",
-    "email": "dipankarpal5050@gmai.com"
+    "name": "Dipankar Pal",
+    "email": "dipankarpal5050@gmail.com"
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
@@ -17,7 +17,8 @@
     "dist:deb": "electron-builder --linux deb tar.xz --publish never",
     "dist": "electron-builder",
     "dist:appimage": "electron-builder --linux AppImage --publish never",
-    "deploy":"electron-builder build --linux --win --publish always"
+    "deploy:linux":"electron-builder --linux deb tar.xz AppImage --publish always",
+    "deploy:win":"electron-builder --windows nsis:ia32 --publish always"
   },
   "keywords": [
     "rename",

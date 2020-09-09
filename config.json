@@ -2,9 +2,9 @@
     "linux": {
       "arch": 64,
       "target": "deb",
-      "version": "v1.0.1",
-      "title": "Mr. D'clutterer",
-      "comment": "Minimal App To Arrange And Rename Files In Bulk",
+      "version": "v1.0.0",
+      "title": "Mr.Dclutterer",
+      "comment": "Minimal App To Aggregate And Rename Files In Bulk",
       "executable": "Mr.Dclutterer",
       "maintainer": "Dipankar Pal <dipankarpal5050@gmail.com>",
       "category": "Utility",
