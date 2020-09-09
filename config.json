@@ -1,0 +1,27 @@
+{
+    "linux": {
+      "arch": 64,
+      "target": "deb",
+      "version": "v1.0.1",
+      "title": "Mr. D'clutterer",
+      "comment": "Minimal App To Arrange And Rename Files In Bulk",
+      "executable": "Mr.Dclutterer",
+      "maintainer": "Dipankar Pal <dipankarpal5050@gmail.com>",
+      "category": "Utility",
+      "appId": "com.deep5050.MrDclutterer",
+      "icon": "build/icons/icon256x256.png"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ],
+          "oneClick": true,
+          "allowToChangeInstallationDirectory": true
+        }
+      ]
+    }
+  }

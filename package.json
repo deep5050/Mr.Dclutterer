@@ -1,19 +1,41 @@
 {
-  "name": "Mr.Dclutterer",
+  "name": "Mr.D'clutterer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Minimal App To Arrange And Rename Files In Bulk And To Make You More Productive",
   "main": "main.js",
+  "author": "Dipankar Pal <dipankarpal5050@gmail.com>",
+  "contributors": {
+    "name": "dipankar pal",
+    "email": "dipankarpal5050@gmai.com"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist:linux": "build -l --config",
+    "dist:win": "electron-builder --windows nsis:ia32",
+    "dist:deb": "electron-builder --linux deb tar.xz",
+    "dist": "electron-builder",
+    "dist:appimage": "electron-builder --linux AppImage"
   },
   "keywords": [
-    "rename"
+    "rename",
+    "bulk-rename",
+    "file-management",
+    "drag-drop",
+    "minimal",
+    "file aggregate",
+    "productive"
   ],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/deep5050/Mr.Dclutterer.git"
+  },
+  "homepage": "https://deep5050.github.io/Mr.Dclutterer",
   "devDependencies": {
     "electron": "^10.1.1",
+    "electron-builder": "^22.8.0",
     "electron-reload": "^1.5.0"
   },
   "dependencies": {

@@ -10,7 +10,7 @@ const appVersion = app.getVersion();
 var mode = 1; // by default works on file
 var handleDirs = true; // by default process directories with depth 1
 
-// require('electron-reload')(path.join(__dirname, 'app'));
+// require('electron-reload')(path.join(__dirname, 'app','view'));
 
 
 contextMenu({
@@ -127,9 +127,9 @@ contextMenu({
 let win;
 function createWindow() {
   win = new BrowserWindow({
-    width: 300, // 300
-    height: 440,  // 400
-    resizable: true,
+    width: 298, // 300
+    height: 438,  // 400
+    resizable: false,
     frame: false,
     maximizable: false,
     fullscreenable: false,
