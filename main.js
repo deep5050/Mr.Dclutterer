@@ -125,9 +125,9 @@ contextMenu({
 });
 
 
-let win;
+
 function createWindow() {
-  win = new BrowserWindow({
+ const win = new BrowserWindow({
     width: 298, // 300
     height: 438,  // 400
     resizable: false,
@@ -150,11 +150,13 @@ function createWindow() {
 
 
   // win.webContents.openDevTools()
-}
+
 
 win.once('ready-to-show', () => {
   autoUpdater.checkForUpdatesAndNotify();
 });
+
+}
 
 autoUpdater.on('update-available', () => {
   let currWin = BrowserWindow.getFocusedWindow();
@@ -450,7 +452,7 @@ ipcMain.on('go', (event, filePath) => {
   var filePathArr = filePath.split("\n");
   analyzeAndGo(filePathArr);
   let currWin = BrowserWindow.getFocusedWindow();
-  win.webContents.send('done', 'DONE');
+  currWin.webContents.send('done', 'DONE');
 });
 
 ipcMain.on('quit', (event) => {
