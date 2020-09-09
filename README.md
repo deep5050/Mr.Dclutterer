@@ -28,8 +28,8 @@ Mr.D'Clutterer Is Then Going To Be A Life Saver Application For You :) Simply Dr
 2. Rename Files On-The-Fly
 3. Aggregate Files By Extensions And Types (More Coming Soon..) 
 4. Process Files Under A Directory Too
-5. Quick Access To Settings From The Right Click Context-Menu :Zap:
-6. Minimal And Beautiful :Heart:
+5. Quick Access To Settings From The Right Click Context-Menu :zap:
+6. Minimal And Beautiful :heart:
 7. Auto Updates Itself
 8. Available Both For Linux & Windows
 
@@ -42,7 +42,7 @@ If You Are Looking For A Tiny Version Of This App Without A GUI That Works Right
 
 ## Settings Menu
 
-Access Settings Right From The Right Click Context-Menu :Cool:
+Access Settings Right From The Right Click Context-Menu :cool:
 
 ![settings](./screenshots/settings.png)
 
