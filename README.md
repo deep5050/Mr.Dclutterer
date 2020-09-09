@@ -33,6 +33,10 @@ Mr.D'Clutterer Is Then Going To Be A Life Saver Application For You :) Simply Dr
 7. Auto Updates Itself
 8. Available Both For Linux & Windows
 
+## Download
+
+Download The Right Installer For Your OS From [Here](https://github.com/deep5050/Mr.Dclutterer/releases/latest)
+
 ## Note
 
 If You Are Looking For A Tiny Version Of This App Without A GUI That Works Right Form The File Managers' Right Click Menu, Check [NaughtyLust](https://github.com/deep5050/NaughtyLust) (Linux Only)
