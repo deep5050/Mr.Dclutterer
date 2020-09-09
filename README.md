@@ -38,7 +38,7 @@ Mr.D'Clutterer Is Then Going To Be A Life Saver Application For You :) Simply Dr
 If You Are Looking For A Tiny Version Of This App Without A GUI That Works Right Form The File Managers' Right Click Menu, Check [NaughtyLust](https://github.com/deep5050/NaughtyLust) (Linux Only)
 
 ## Demo
- [![Mr. D'clutterer](https://res.cloudinary.com/marcomontalbano/image/upload/v1599642904/video_to_markdown/images/youtube--HZ6AtUOcP20-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/embed/HZ6AtUOcP20 "Mr. D'clutterer")
+ [![Mr. D'clutterer](./screenshots/youtube-demo.jpg)](https://www.youtube.com/embed/HZ6AtUOcP20 "Mr. D'clutterer")
 
 
 ## Settings Menu
@@ -83,6 +83,9 @@ SOFTWARE.
 
 
 ## Support
+
+
+All Kinds Of Supports Are Welcome :raised_hands:! The Most Basic Way To Show Your Support Is To Star :star2: The Project, Or To Raise Issues :speech_balloon: You Can Also Support This Project By [**becoming a sponsor on GitHub**](https://github.com/sponsors/deep5050) :clap: Or By Making A [**Paypal**](https://paypal.me/deep5050) Donation :)
 
 
 ## Related Works
