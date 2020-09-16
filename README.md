@@ -95,7 +95,7 @@ All Kinds Of Supports Are Welcome :raised_hands:! The Most Basic Way To Show You
 ## Related Works
 [NaughtyLust](https://github.com/deep5050/NaughtyLust) : Awesome Nautilus Scripts For Linux.
 
-[qikQR](https://github.com/deep5050/NaughtyLust) : Minimal QR Code Generator App Made With Electron.
+[qikQR](https://github.com/deep5050/qikQR) : Minimal QR Code Generator App Made With Electron.
 
 [cppcheck-action](https://github.com/deep5050/cppcheck-action) : Check Security Flaws In Your C/C++ Codes Right From GitHub Action Workflows.
 
