@@ -27,7 +27,7 @@ Mr.D'Clutterer Is Then Going To Be A Life Saver Application For You :) Simply Dr
 1. Drag And Drop
 2. Rename Files On-The-Fly
 3. Aggregate Files By Extensions And Types (More Coming Soon..) 
-4. Process Files Under A Directory Too
+4. Process Files Under Sub-Directories Too
 5. Quick Access To Settings From The Right Click Context-Menu :zap:
 6. Minimal And Beautiful :heart:
 7. Auto Updates Itself
