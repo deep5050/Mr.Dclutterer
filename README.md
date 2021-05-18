@@ -2,9 +2,9 @@
 <p align=center><img src="./build/icons/icon256x256.png" width=200px align=center /></p>
 
 <p align=center><h2 align=center> Mr. D'clutterer</h2></p>
-<p align=center> Move Files To Where They Should & Call Yourself Mr. Clean </p>
-<p align=center> Aggregate Files . Bulk Renaming </p>
-<p align=center> A Minimal Looking Cross-Platform Desktop Application Made With <a href="https://electronjs.org"> Electron </a> That Handles Quick File Aggregation And Bulk Renaming</p>
+<p align=center> Move files to where they should & call yourself mr. clean </p>
+<p align=center> Aggregate files . bulk renaming </p>
+<p align=center> A minimal looking cross-platform desktop application made with <a href="https://electronjs.org"> Electron </a> that handles quick file aggregation and bulk renaming</p>
 <p align=center><img alt="Release Version" src="https://img.shields.io/github/v/release/deep5050/Mr.Dclutterer?style=flat" align=center></img>
 <img alt="Stars" src="https://img.shields.io/github/stars/deep5050/Mr.Dclutterer?style=flat" align=center></img>
 
@@ -16,30 +16,30 @@
 
 ## About
 
-Are You An Internet Guy? Downloading Hundreds Of Files And Then Scrolling Over All Of Them To Find A Few?
-Download Folder Is So Cluttered With Files That It Takes A Significant Amount Of Time To Open? 
-As A Programmer Want To Remove Those Annoying Spaces From File Names In Bulk? 
+Are you an internet guy? downloading hundreds of files and then scrolling over all of them to find a few?
+Download folder is so cluttered with files that it takes a significant amount of time to open? 
+As a programmer want to remove those annoying spaces from file names in bulk? 
 
-Mr.D'Clutterer Is Then Going To Be A Life Saver Application For You :) Simply Drop A Folder Or Selected Files On To It To Make Them Organized In Fraction Of A Second.
+Mr.d'clutterer is then going to be a life saver application for you :) simply drop a folder or selected files on to it to make them organized in fraction of a second.
 
 ## Features
 
-1. Drag And Drop
-2. Rename Files On-The-Fly
-3. Aggregate Files By Extensions And Types (More Coming Soon..) 
-4. Process Files Under Sub-Directories Too
-5. Quick Access To Settings From The Right Click Context-Menu :zap:
-6. Minimal And Beautiful :heart:
-7. Auto Updates Itself
-8. Available Both For Linux & Windows
+1. Drag and drop
+2. Rename files on-the-fly
+3. Aggregate files by extensions and types (more coming soon..) 
+4. Process files under sub-directories too
+5. Quick access to settings from the right click context-menu :zap:
+6. Minimal and beautiful :heart:
+7. Auto updates itself
+8. Available both for linux & windows
 
 ## Download
 
-Download The Right Installer For Your OS From [Here](https://github.com/deep5050/Mr.Dclutterer/releases/latest)
+Download the right installer for your os from [Here](https://github.com/deep5050/Mr.Dclutterer/releases/latest)
 
 ## Note
 
-If You Are Looking For A Tiny Version Of This App Without A GUI That Works Right Form The File Managers' Right Click Menu, Check [NaughtyLust](https://github.com/deep5050/NaughtyLust) (Linux Only)
+If you are looking for a tiny version of this app without a gui that works right form the file managers' right click menu, check [NaughtyLust](https://github.com/deep5050/NaughtyLust) (Linux Only)
 
 ## Demo
  [![Mr. D'clutterer](./screenshots/youtube-demo.jpg)](https://www.youtube.com/embed/HZ6AtUOcP20 "Mr. D'clutterer")
@@ -47,7 +47,7 @@ If You Are Looking For A Tiny Version Of This App Without A GUI That Works Right
 
 ## Settings Menu
 
-Access Settings Right From The Right Click Context-Menu :cool:
+Access settings right from the right click context-menu :cool:
 
 ![settings](./screenshots/settings.png)
 
@@ -55,11 +55,11 @@ Access Settings Right From The Right Click Context-Menu :cool:
 ## Usage Guide
 
 ### Directory Handling
-If Any Folders (Directories) Dropped, Files Under Those Will Also Be Taken Under Consideration
+If any folders (directories) dropped, files under those will also be taken under consideration
 
 ### Default Mode
 
-Aggregate Files Based On Their Types With Directory Handling On 
+Aggregate files based on their types with directory handling on 
 
 ## License
 >MIT License
@@ -89,7 +89,7 @@ SOFTWARE.
 ## Support
 
 
-All Kinds Of Supports Are Welcome :raised_hands:! The Most Basic Way To Show Your Support Is To Star :star2: The Project, Or To Raise Issues :speech_balloon: You Can Also Support This Project By [**becoming a sponsor on GitHub**](https://github.com/sponsors/deep5050) :clap: Or By Making A [**Paypal**](https://paypal.me/deep5050) Donation :)
+All kinds of supports are welcome :raised_hands:! the most basic way to show your support is to star :star2: the project, or to raise issues :speech_balloon: you can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/deep5050) :clap: Or By Making A [**Paypal**](https://paypal.me/deep5050) Donation :)
 
 
 ## Related Works
