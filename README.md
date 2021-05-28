@@ -11,7 +11,10 @@
   <img align=center  src="https://visitor-badge.laobi.icu/badge?page_id=deep5050.Mr.Dclutterer" alt="Visitors">      
 <img align=center alt="GitHub All Releases" src="https://img.shields.io/github/downloads/deep5050/Mr.Dclutterer/total?label=downloads&style=plastic">              
 </p>
-<p align=center><img align=center src="./screenshots/app-main.png">
+<p><a href=https://www.youtube.com/channel/UCHE71XuJOPKlHSxSr40u5Lw> <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCHE71XuJOPKlHSxSr40u5Lw?style=social"></a>
+<a href=https://www.youtube.com/channel/UCHE71XuJOPKlHSxSr40u5Lw> <img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCHE71XuJOPKlHSxSr40u5Lw?style=social"></a></p>
+<p align=center><img align=center src="./screenshots/app-main.png"></p>
+
 </div>
 
 ## About
